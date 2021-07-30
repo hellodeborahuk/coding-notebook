@@ -7,11 +7,14 @@ const AddNote = ({ handleAddNote }) => {
     setData({ ...data, [event.target.name]: event.target.value });
   };
 
-  const handleSaveClick = (event) => {
-    event.preventDefault();
-    handleAddNote(data);
+
+  const handleSaveClick = () => {
+    if (data.title.trim().length > 0 && data.text.trim().length > 0) {
+      handleAddNote(data);
+      setData({ title: "", text: "" }); // reset data to new object
+    } 
   };
-  
+
   return (
     <div className="Note flex flex-col justify-between border border-gray-700 rounded-lg shadow-lg">
       <div className="p-4 flex items-center justify-between relative border-b border-gray-700 ">

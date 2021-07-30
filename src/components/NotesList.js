@@ -2,7 +2,7 @@ import Note from "./Note";
 import AddNote from "./AddNote";
 
 
-const NotesList = ({ notes, handleAddNote }) => {
+const NotesList = ({ notes, handleAddNote, handleDeleteNote }) => {
   return (
     <div className="NotesList lg:grid grid-cols-3 gap-6 space-y-8 lg:space-y-0">
       <AddNote handleAddNote={handleAddNote}/>
@@ -12,6 +12,7 @@ const NotesList = ({ notes, handleAddNote }) => {
           title={note.title}
           text={note.text}
           date={note.date}
+          handleDeleteNote={handleDeleteNote}
         />
       ))}
     </div>

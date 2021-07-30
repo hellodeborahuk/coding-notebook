@@ -11,7 +11,7 @@ const App = () => {
     },
     {
       id: nanoid(),
-      title: "Day 003",
+      title: "Day 002",
       text: "This is my second note",
       date: "15/5/2021",
     },
@@ -41,9 +41,14 @@ const App = () => {
     setNotes(newNotes);
   };
 
+  const deleteNote = (id) => {
+      const newNotes = notes.filter((note) => note.id !== id);
+      setNotes(newNotes);
+  }
+
   return (
     <div className="container mx-auto max-w-screen-lg p-4">
-      <NotesList notes={notes} handleAddNote={addNote} />
+      <NotesList notes={notes} handleAddNote={addNote} handleDeleteNote={deleteNote} />
     </div>
   );
 };
