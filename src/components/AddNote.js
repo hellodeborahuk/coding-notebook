@@ -16,7 +16,7 @@ const AddNote = ({ handleAddNote }) => {
   };
 
   return (
-    <div className="Note flex flex-col justify-between border border-gray-700 rounded-lg shadow-lg">
+    <div className="Note flex flex-col justify-between border bg-white border-gray-700 rounded-lg shadow-lg">
       <div className="p-4 flex items-center justify-between relative border-b border-gray-700 ">
         <input
           type="text"

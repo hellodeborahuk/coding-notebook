@@ -4,6 +4,7 @@ import NotesList from "./components/NotesList";
 import Search from "./components/Search";
 
 const App = () => {
+
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
@@ -33,8 +34,6 @@ const App = () => {
 
   const [searchText, setSearchText] = useState("");
 
-
-
   const addNote = (name) => {
     const date = new Date();
     const newNote = {
@@ -53,9 +52,17 @@ const App = () => {
   }
 
   return (
-    <div className="container mx-auto max-w-screen-lg p-4">
+    <div className="container mx-auto max-w-screen-lg p-4 ">
       <Search handleSearchNote={setSearchText} />
-      <NotesList notes={notes.filter((note)=> note.text.toLowerCase().includes(searchText))} handleAddNote={addNote} handleDeleteNote={deleteNote} />
+      <NotesList
+        notes={notes.filter(
+          (note) =>
+            note.title.toLowerCase().includes(searchText.toLowerCase()) ||
+            note.text.toLowerCase().includes(searchText.toLowerCase())
+        )}
+        handleAddNote={addNote}
+        handleDeleteNote={deleteNote}
+      />
     </div>
   );
 };

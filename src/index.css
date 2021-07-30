@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .Note {
     min-height: 170px;
 }
