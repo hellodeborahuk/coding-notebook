@@ -7,3 +7,13 @@
 .Note {
     min-height: 170px;
 }
+
+.dark-mode {
+    background-color: #14532D;
+    
+}
+
+.dark-mode h1 {
+    color: 
+#F0FDF4;
+}
