@@ -1,10 +1,10 @@
 import { MdDeleteForever } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
 
-const Note = ({ id, title, text, date, handleDeleteNote }) => {
+const Note = ({ id, title, text, date, tags, handleDeleteNote }) => {
   return (
-    <div className="Note flex flex-col justify-between bg-green-50 border border-gray-700 rounded-lg shadow-lg">
-      <div className="p-4 flex items-center justify-between relative border-b border-gray-700 ">
+    <div className="Note flex flex-col justify-between bg-green-50 border border-green-700 rounded-lg shadow-lg">
+      <div className="p-4 flex items-center justify-between relative border-b border-green-700 ">
         <h3 className="font-bold text-green-900">{title}</h3>
         <div className="flex space-x-2">
           <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -15,6 +15,19 @@ const Note = ({ id, title, text, date, handleDeleteNote }) => {
 
       <div className="p-4">
         <p className="mb-3 text-green-800">{text}</p>
+        <div className="flex flex-wrap">
+          {tags.map((tag, index) => {
+            return (
+              <div
+                key={index}
+                className="bg-green-600 text-green-50 py-1 px-2 mr-1 mb-2  rounded-lg"
+              >
+                {tag}
+              </div>
+            );
+          })}
+        </div>
+
         <div className="flex items-center justify-between note-footer">
           <small className="text-green-900">{date}</small>
           <div className="flex space-x-2">

@@ -1,23 +1,29 @@
 import { useState } from "react";
+import Tag from "./Tag";
 
 const AddNote = ({ handleAddNote }) => {
-  const [data, setData] = useState({ title: "", text: "" });
+  const [data, setData] = useState({ title: "", text: "", tags: [] });
+  const [saveCounter, setSaveCounter] = useState(0);
 
   const handleChange = (event) => {
     setData({ ...data, [event.target.name]: event.target.value });
   };
 
+  const updateTags = (tags) => {
+    setData({...data, tags});
+  }
 
   const handleSaveClick = () => {
     if (data.title.trim().length > 0 && data.text.trim().length > 0) {
       handleAddNote(data);
-      setData({ title: "", text: "" }); // reset data to new object
+      setData({ title: "", text: "", tags: [] }); // reset data to new object
+      setSaveCounter(saveCounter +1);
     } 
   };
 
   return (
-    <div className="Note flex flex-col justify-between border bg-white border-gray-700 rounded-lg shadow-lg">
-      <div className="p-4 flex items-center justify-between relative border-b border-gray-700 ">
+    <div className="Note flex flex-col justify-between border bg-white border-green-700 rounded-lg shadow-lg">
+      <div className="p-4 flex items-center justify-between relative border-b border-green-700 ">
         <input
           type="text"
           placeholder="Enter title..."
@@ -41,6 +47,9 @@ const AddNote = ({ handleAddNote }) => {
           value={data.text}
           onChange={handleChange}
         ></textarea>
+        <div>
+          <Tag updateTags={updateTags} clearTags={saveCounter} />
+        </div>
         <div className="flex justify-end note-footer">
           <button
             onClick={handleSaveClick}

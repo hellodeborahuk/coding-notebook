@@ -11,24 +11,28 @@ const App = () => {
       title: "Day 001",
       text: "This is my first note",
       date: "14/5/2021",
+      tags: [],
     },
     {
       id: nanoid(),
       title: "Day 002",
       text: "This is my second note",
       date: "15/5/2021",
+      tags: [],
     },
     {
       id: nanoid(),
       title: "Day 003",
       text: "This is my third note",
       date: "16/5/2021",
+      tags: [],
     },
     {
       id: nanoid(),
       title: "Day 004",
       text: "This is my fourth note",
       date: "17/5/2021",
+      tags: [],
     },
   ]);
 
@@ -55,6 +59,7 @@ const App = () => {
       title: name.title,
       text: name.text,
       date: date.toLocaleDateString(),
+      tags: name.tags,
     };
     const newNotes = [...notes, newNote];
     setNotes(newNotes);

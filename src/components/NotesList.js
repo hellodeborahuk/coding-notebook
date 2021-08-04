@@ -12,6 +12,7 @@ const NotesList = ({ notes, handleAddNote, handleDeleteNote }) => {
           title={note.title}
           text={note.text}
           date={note.date}
+          tags={note.tags}
           handleDeleteNote={handleDeleteNote}
         />
       ))}
