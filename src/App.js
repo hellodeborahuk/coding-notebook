@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import NotesList from "./components/NotesList";
 import Search from "./components/Search";
 import Header from "./components/Header";
+import { MdLocalGroceryStore } from "react-icons/md";
 
 const App = () => {
-
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
@@ -34,7 +34,20 @@ const App = () => {
   ]);
 
   const [searchText, setSearchText] = useState("");
-  const [darkMode, setDarkMode ] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const savedNotes = JSON.parse(localStorage.getItem("react-notes-app-data"));
+
+    if(savedNotes) {
+      setNotes(savedNotes);
+    }
+
+  }, []); // empty array runs only on first load
+
+  useEffect(() => {
+    localStorage.setItem("react-notes-app-data", JSON.stringify(notes));
+  }, [notes]);
 
   const addNote = (name) => {
     const date = new Date();
@@ -49,9 +62,9 @@ const App = () => {
   };
 
   const deleteNote = (id) => {
-      const newNotes = notes.filter((note) => note.id !== id);
-      setNotes(newNotes);
-  }
+    const newNotes = notes.filter((note) => note.id !== id);
+    setNotes(newNotes);
+  };
 
   return (
     <div className={`${darkMode && "dark-mode"}`}>
