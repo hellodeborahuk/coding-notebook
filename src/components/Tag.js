@@ -10,6 +10,7 @@ function Tag({ updateTags, clearTags }) {
 
   useEffect(() => {
     updateTags(tags);
+    // eslint-disable-next-line
   }, [tags]);
 
   const addTag = (event) => {
