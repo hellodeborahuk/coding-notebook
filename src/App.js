@@ -37,15 +37,15 @@ const App = () => {
   ]);
 
   const [searchText, setSearchText] = useState("");
+  const [tagFilter, setTagFilter] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem("react-notes-app-data"));
 
-    if(savedNotes) {
+    if (savedNotes) {
       setNotes(savedNotes);
     }
-
   }, []); // empty array runs only on first load
 
   useEffect(() => {
@@ -70,17 +70,36 @@ const App = () => {
     setNotes(newNotes);
   };
 
+  const searchTagFilter = (note) => {
+    if (tagFilter !== null) {
+      return note.tags.includes(tagFilter);
+    }
+  
+    return true;
+  };
+
+  const searchTextFilter = (note) => {
+   
+    if (searchText !== "") {
+      return (
+        note.title.toLowerCase().includes(searchText.toLowerCase()) ||
+        note.text.toLowerCase().includes(searchText.toLowerCase())
+      );
+    }
+    return true;
+  };
+
   return (
     <div className={`${darkMode && "dark-mode"}`}>
       <div className="container mx-auto max-w-screen-lg min-h-screen p-4 ">
         <Header handleToggleDarkMode={setDarkMode} darkMode={darkMode} />
-        <Search handleSearchNote={setSearchText} />
+        <Search
+          handleSearchNote={setSearchText}
+          handleTagFilter={setTagFilter}
+          notes={notes}
+        />
         <NotesList
-          notes={notes.filter(
-            (note) =>
-              note.title.toLowerCase().includes(searchText.toLowerCase()) ||
-              note.text.toLowerCase().includes(searchText.toLowerCase())
-          )}
+          notes={notes.filter(searchTagFilter) .filter(searchTextFilter)}
           handleAddNote={addNote}
           handleDeleteNote={deleteNote}
         />
