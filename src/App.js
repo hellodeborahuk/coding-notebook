@@ -99,7 +99,7 @@ const App = () => {
           notes={notes}
         />
         <NotesList
-          notes={notes.filter(searchTagFilter) .filter(searchTextFilter)}
+          notes={notes.filter(searchTagFilter).filter(searchTextFilter)}
           handleAddNote={addNote}
           handleDeleteNote={deleteNote}
         />
