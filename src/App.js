@@ -35,14 +35,7 @@ const App = () => {
     setNotes(newNotes);
   };
 
-  const editNote = (data) => {
-    let tmp = [...notes];
-    const index = tmp.findIndex((note) => note.id === data.id);
-    if (index > -1) {
-      tmp.splice(index, 1, data);
-      setNotes(tmp);
-    }
-  };
+
 
   const deleteNote = (id) => {
     const newNotes = notes.filter((note) => note.id !== id);

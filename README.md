@@ -12,9 +12,7 @@ After the initial setup of the notes and saving them to local storage, I added t
 
 With the ability to add tags, I thought it would be useful to filter notes by tag so I added a filter button next to the search. 
 
-The edit functionality...
-
-
+To create the edit functionality I had to refactor my components so that the form stood alone but also was included in the Note. The Note component contains two further components: the form and the note view. This meant went the edit button was clicked it would show the form and when saved it would show the note view.
 
 ## Technologies used
 
