@@ -1,20 +1,12 @@
 import Note from "./Note";
-import AddNote from "./AddNote";
+import NoteForm from "./NoteForm";
 
-
-const NotesList = ({ notes, handleAddNote, handleDeleteNote }) => {
+const NotesList = ({ notes, handleAddNote, handleDeleteNote, handleEditNote }) => {
   return (
     <div className="NotesList lg:grid grid-cols-3 gap-6 space-y-8 lg:space-y-0">
-      <AddNote handleAddNote={handleAddNote}/>
+      <NoteForm handleAddNote={handleAddNote} />
       {notes.map((note) => (
-        <Note
-          id={note.id}
-          title={note.title}
-          text={note.text}
-          date={note.date}
-          tags={note.tags}
-          handleDeleteNote={handleDeleteNote}
-        />
+        <Note note={note} handleDeleteNote={handleDeleteNote} handleEditNote={handleEditNote} />
       ))}
     </div>
   );

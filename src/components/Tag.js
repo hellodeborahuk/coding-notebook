@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-function Tag({ updateTags, clearTags }) {
+function Tag({ updateTags, clearTags, defaultTags }) {
   const [tags, setTags] = useState([]);
 
   useEffect(() => {
-    setTags([]);
-    console.log(clearTags);
+    setTags(defaultTags || []);
+    // eslint-disable-next-line
   }, [clearTags]);
 
   useEffect(() => {

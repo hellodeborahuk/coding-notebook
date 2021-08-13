@@ -10,9 +10,11 @@ I decided to use Tailwind CSS as it's something I've recently been learning and 
 
 After the initial setup of the notes and saving them to local storage, I added tagging functionality. I could now add and remove multiple tags from each note. 
 
-The edit functionality was trickier to add. 
+With the ability to add tags, I thought it would be useful to filter notes by tag so I added a filter button next to the search. 
 
-Filtering tags.
+The edit functionality...
+
+
 
 ## Technologies used
 
@@ -24,6 +26,7 @@ Filtering tags.
 
 1. Save information to a database.
 2. Ability to login.
+3. Pin notes to the top.
 
 ## Contact
 

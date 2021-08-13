@@ -5,37 +5,7 @@ import Search from "./components/Search";
 import Header from "./components/Header";
 
 const App = () => {
-  const [notes, setNotes] = useState([
-    {
-      id: nanoid(),
-      title: "Day 001",
-      text: "This is my first note",
-      date: "14/5/2021",
-      tags: [],
-    },
-    {
-      id: nanoid(),
-      title: "Day 002",
-      text: "This is my second note",
-      date: "15/5/2021",
-      tags: [],
-    },
-    {
-      id: nanoid(),
-      title: "Day 003",
-      text: "This is my third note",
-      date: "16/5/2021",
-      tags: [],
-    },
-    {
-      id: nanoid(),
-      title: "Day 004",
-      text: "This is my fourth note",
-      date: "17/5/2021",
-      tags: [],
-    },
-  ]);
-
+  const [notes, setNotes] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [tagFilter, setTagFilter] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
@@ -65,6 +35,15 @@ const App = () => {
     setNotes(newNotes);
   };
 
+  const editNote = (data) => {
+    let tmp = [...notes];
+    const index = tmp.findIndex((note) => note.id === data.id);
+    if (index > -1) {
+      tmp.splice(index, 1, data);
+      setNotes(tmp);
+    }
+  };
+
   const deleteNote = (id) => {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
@@ -74,12 +53,11 @@ const App = () => {
     if (tagFilter !== null) {
       return note.tags.includes(tagFilter);
     }
-  
+
     return true;
   };
 
   const searchTextFilter = (note) => {
-   
     if (searchText !== "") {
       return (
         note.title.toLowerCase().includes(searchText.toLowerCase()) ||
@@ -102,6 +80,7 @@ const App = () => {
           notes={notes.filter(searchTagFilter).filter(searchTextFilter)}
           handleAddNote={addNote}
           handleDeleteNote={deleteNote}
+          handleEditNote={editNote}
         />
       </div>
     </div>
