@@ -1,4 +1,4 @@
-# #100DaysOfCode notes app
+# Notes app
 
 ## About the project
 
