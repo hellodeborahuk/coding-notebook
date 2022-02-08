@@ -1,5 +1,7 @@
 # Notes app
 
+![notes app](https://user-images.githubusercontent.com/29425781/153005126-053cd5c4-fed8-448c-8a02-6e32348e6b4b.png)
+
 ## About the project
 
 I wanted to create an CRUD project that would allow me to track my notes from #100DaysOfCode challenge on Twitter. 
