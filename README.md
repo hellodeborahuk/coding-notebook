@@ -1,6 +1,6 @@
 # Notes app
 
-![notes app](https://user-images.githubusercontent.com/29425781/153005126-053cd5c4-fed8-448c-8a02-6e32348e6b4b.png)
+![Notes app gif](https://user-images.githubusercontent.com/29425781/154816386-2c00b005-a4ec-4bbb-a4f2-5b17047c0db6.gif)
 
 ## About the project
 
