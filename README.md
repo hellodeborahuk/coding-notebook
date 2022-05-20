@@ -16,6 +16,8 @@ With the ability to add tags, I thought it would be useful to filter notes by ta
 
 To create the edit functionality I had to refactor my components so that the form stood alone but also was included in the Note. The Note component contains two further components: the form and the note view. This meant went the edit button was clicked it would show the form and when saved it would show the note view.
 
+![coding-notebook-screenshot](https://user-images.githubusercontent.com/29425781/169498167-48b7c92e-77fa-4218-b7e1-fb470a1242b1.png)
+
 ## Technologies used
 
 * React
