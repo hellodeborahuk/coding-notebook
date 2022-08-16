@@ -13,9 +13,7 @@ const App = () => {
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem("react-notes-app-data"));
 
-    if (savedNotes) {
-      setNotes(savedNotes);
-    }
+   savedNotes && setNotes(savedNotes);
   }, []); // empty array runs only on first load
 
   useEffect(() => {
